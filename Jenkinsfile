@@ -13,10 +13,13 @@ pipeline {
             steps {
                 sh 'mvn -B clean install'
                 cucumber(
+                    buildStatus: 'UNCHANGED',
+                    customCssFiles: '',
+                    customJsFiles: '',
                     failedFeaturesNumber: -1,
-                    failedScenarioNumber: -1,
+                    failedScenariosNumber: -1,
                     failedStepsNumber: -1,
-                    fileIncludePattern: '***/*.json',
+                    fileIncludePattern: '**/*.json',
                     pendingStepsNumber: -1,
                     skippedStepsNumber: -1,
                     sortingMethod: 'ALPHABETICAL',
@@ -31,3 +34,4 @@ pipeline {
         }
     }
 }
+
